@@ -22,10 +22,10 @@ int main()
     char studentChoice;
     string name;
     const string ERROR = "Invalid choice. Please choose a given option.";
-    const string QUIT_1 = "Thank you, ", QUIT_2 = ", for using this program! Please use it again if you need anymore practice!\n\n";
+    const string QUIT_1 = "Thank you, ", QUIT_2 = ", for using this program! \nPlease use it again if you need anymore practice!\n\n";
     int seed = time(0);
     
-    srand(seed); // shazEdit
+    srand(seed); // shazEdit -- not sure what this is for ?
     
     // get user's name -- shazEdit
     cout << "Please enter your name.\n"; 
@@ -38,6 +38,9 @@ int main()
         cout << "Please enter your name.\n";
         getline(cin, name);
          */ 
+        
+        // shazEdit ^ : You should put this before the start of do...while so 
+        // it doesn't keep repeating
          
         cout << "Welcome, " << name << " to Math Tutor! \nPlease select one of the following options.\n";
         cout << "1. Addition" << endl << "2. Subtraction" << endl << "3. Multiplication" << endl;
@@ -99,6 +102,7 @@ int main()
                 max = 99;
                 // num2 = (rand() % (max - min + 1)) + min;
                 num2 = (rand() % max) + min; // shazEdit
+                
                 result = num1 - num2;
                 
                 // user inputs an answer
@@ -136,6 +140,7 @@ int main()
                 max = 99;
                 // num2 = (rand() % (max - min + 1)) + min;
                 num2 = (rand() % max) + min; // shazEdit
+                
                 result = num1 * num2;
                 
                 // user inputs an answer
@@ -165,14 +170,15 @@ int main()
                 max = 999;
                 
                 // addition random numbers and total
-                num1 = (rand() % (max - min + 1)) + min;
-                // num1 = (rand() % max) + min; // shazEdit
+                // num1 = (rand() % (max - min + 1)) + min;
+                num1 = (rand() % max) + min; // shazEdit
                 
                 // bottom number between 1 and 9
                 min = 1;
                 max = 9;
-                num2 = (rand() % (max - min + 1)) + min;
-                // num2 = (rand() % max) + min; 
+                // num2 = (rand() % (max - min + 1)) + min;
+                num2 = (rand() % max) + min; // shazEdit 
+                
                 result = num1 / num2;
                 
                 // user inputs an answer
@@ -203,15 +209,15 @@ int main()
                 break;
         }
         
-        cout << "Would you like to solve another problem? y/n\n";
-        cin >> studentChoice;
-    
+        if (studentChoice != '5') {
+            cout << "Would you like to solve another problem? y/n\n";
+            cin >> studentChoice;
+        }
 
-    }
-    while (studentChoice == 'y' || studentChoice == 'Y');
+    } while (studentChoice == 'y' || studentChoice == 'Y');
     
     // Print out last statements -- shazeEdit
-    cout << QUIT_1 << name << endl << QUIT_2 << endl;
+    cout << QUIT_1 << name << QUIT_2 << endl;
     // system("pause"); // shazEdit
     
     return 0;
